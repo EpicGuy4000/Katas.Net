@@ -2,5 +2,6 @@ namespace Katas.Net;
 
 public interface ISortingAlgorithm
 {
-    int[] Sort(int[] elements);
+    T[] Sort<T>(T[] elements) where T: IComparable => SortBy(elements, new InLineComparer<T>((x, y) => x.CompareTo(y)));
+    T[] SortBy<T>(T[] elements, IComparer<T> comparer);
 }

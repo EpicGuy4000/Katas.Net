@@ -2,37 +2,16 @@
 
 public class MergeSort : ISortingAlgorithm
 {
-    public int[] Sort(int[] elements)
+    private T[] Merge<T>(T[] left, T[] right, IComparer<T> comparer)
     {
-        switch (elements.Length)
-        {
-            case 1:
-                return elements;
-            case 2:
-            {
-                if (elements[0] > elements[1]) Swap(elements, 0, 1);
-                return elements;
-            }
-        }
-
-        var left = new int[elements.Length / 2];
-        var right = new int[elements.Length - left.Length];
-        Array.Copy(elements, 0, left, 0, left.Length);
-        Array.Copy(elements, left.Length, right, 0, right.Length);
-        
-        return Merge(Sort(left), Sort(right));
-    }
-
-    private int[] Merge(int[] left, int[] right)
-    {
-        var sorted = new int[left.Length + right.Length];
+        var sorted = new T[left.Length + right.Length];
         var leftIndex = 0;
         var rightIndex = 0;
         var sortedIndex = 0;
 
         while (leftIndex < left.Length && rightIndex < right.Length)
         {
-            if (left[leftIndex] <= right[rightIndex])
+            if (comparer.Compare(left[leftIndex], right[rightIndex]) <= 0)
             {
                 sorted[sortedIndex] = left[leftIndex];
                 leftIndex++;
@@ -63,10 +42,27 @@ public class MergeSort : ISortingAlgorithm
         return sorted;
     }
     
-    private static void Swap(int[] elements, int indexOne, int indexTwo)
+    private static void Swap<T>(T[] elements, int indexOne, int indexTwo) => 
+        (elements[indexOne], elements[indexTwo]) = (elements[indexTwo], elements[indexOne]);
+
+    public T[] SortBy<T>(T[] elements, IComparer<T> comparer)
     {
-        elements[indexOne] ^= elements[indexTwo];
-        elements[indexTwo] ^= elements[indexOne];
-        elements[indexOne] ^= elements[indexTwo];
+        switch (elements.Length)
+        {
+            case 1:
+                return elements;
+            case 2:
+            {
+                if (comparer.Compare(elements[0], elements[1]) > 0) Swap(elements, 0, 1);
+                return elements;
+            }
+        }
+
+        var left = new T[elements.Length / 2];
+        var right = new T[elements.Length - left.Length];
+        Array.Copy(elements, 0, left, 0, left.Length);
+        Array.Copy(elements, left.Length, right, 0, right.Length);
+        
+        return Merge(SortBy(left, comparer), SortBy(right, comparer), comparer);
     }
 }
