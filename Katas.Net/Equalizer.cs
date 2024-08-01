@@ -6,7 +6,7 @@ public static class Equalizer
     {
         if (nums.Length == 0) return 0;
         
-        ISortingAlgorithm sortingAlgorithm = new MergeSort();
+        ISortingAlgorithm sortingAlgorithm = new QuickSort();
 
         var sortedNums = sortingAlgorithm.Sort(nums);
         var minElement = sortedNums[0];
