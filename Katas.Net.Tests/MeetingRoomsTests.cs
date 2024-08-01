@@ -1,6 +1,6 @@
 namespace Katas.Net.Tests;
 
-public class MeetingRoomsTest
+public class MeetingRoomsTests
 {
     [TestCase(1, new [] { 10, 15 }, new [] {20, 25}, new [] { 30, 35})]
     [TestCase(2, new [] { 10, 20 }, new [] {15, 25}, new [] { 24, 30})]

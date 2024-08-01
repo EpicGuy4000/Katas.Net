@@ -1,6 +1,6 @@
 namespace Katas.Net.Tests;
 
-public class TopKFrequentNumbersTest
+public class TopKFrequentNumbersTests
 {
     [TestCase(new[] {1, 3, 5, 12, 11, 12, 11}, 2, new[] {12, 11})]
     [TestCase(new[] {5, 12, 11, 3, 11}, 2, new[] { 11, 5 }, new[] {12, 11}, new[] { 11, 3})]
