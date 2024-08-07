@@ -1,4 +1,6 @@
-namespace Katas.Net.Tests;
+using Katas.Net.Sorting;
+
+namespace Katas.Net.Tests.Sorting;
 
 public class SortByFrequencyTests
 {

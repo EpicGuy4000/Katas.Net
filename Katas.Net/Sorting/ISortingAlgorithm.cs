@@ -1,4 +1,4 @@
-namespace Katas.Net;
+namespace Katas.Net.Sorting;
 
 public interface ISortingAlgorithm
 {

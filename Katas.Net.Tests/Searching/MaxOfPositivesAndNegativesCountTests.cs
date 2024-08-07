@@ -1,4 +1,6 @@
-namespace Katas.Net.Tests;
+using Katas.Net.Searching;
+
+namespace Katas.Net.Tests.Searching;
 
 public class MaxOfPositivesAndNegativesCountTests
 {

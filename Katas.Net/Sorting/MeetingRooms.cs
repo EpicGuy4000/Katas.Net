@@ -1,4 +1,4 @@
-namespace Katas.Net;
+namespace Katas.Net.Sorting;
 
 public static class MeetingRooms {
     private static readonly ISortingAlgorithm SortingAlgorithm = new QuickSort();

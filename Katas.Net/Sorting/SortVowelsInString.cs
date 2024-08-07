@@ -1,7 +1,7 @@
 using System.Collections.Frozen;
 using System.Text;
 
-namespace Katas.Net;
+namespace Katas.Net.Sorting;
 
 public static class SortVowelsInString
 {

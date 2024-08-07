@@ -1,4 +1,4 @@
-namespace Katas.Net;
+namespace Katas.Net.Sorting;
 
 public class InLineComparer<T>(Func<T, T, int> compareImplementation) : IComparer<T>
 {

@@ -1,4 +1,4 @@
-namespace Katas.Net;
+namespace Katas.Net.Searching;
 
 public static class MaxOfPositivesAndNegativesCount
 {
